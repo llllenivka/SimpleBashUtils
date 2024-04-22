@@ -10,10 +10,7 @@
 2. [Chapter II](#chapter-ii) \
     2.1. [Information](#information)
 3. [Chapter III](#chapter-iii) \
-    3.1. [Part 1](#part-1-работа-с-утилитой-cat)  
-    3.2. [Part 2](#part-2-работа-с-утилитой-grep)  
-    3.3. [Part 3](#part-3-дополнительно-реализация-некоторых-флагов-утилиты-grep)  
-    3.4. [Part 4](#part-4-дополнительно-реализация-комбинаций-флагов-утилиты-grep) 
+
 
 
 #
