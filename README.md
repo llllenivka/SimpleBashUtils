@@ -1,76 +1,113 @@
-# Simple Bash Utils
+# SimpleBashUtils
 
-Разработка утилит Bash по работе с текстом: cat, grep.
+The **SimpleBashUtils** project is a set of text manipulation utilities implemented in the C programming language.The main utilities to be developed within the project include:
+- **cat** - for outputting file contents.
+- **grep** - for searching strings by pattern in files.
+
+The project is focused on learning the basics of developing command line utilities, as well as using a structured approach to programming.
 
 ## Contents
+1. [Program Features](#program-features)
+    - [cat](#cat)
+    - [grep](#grep)
+2. [Requirements](#requirements)
+2. [Build](#build)
+3. [Use](#use) 
+3. [Testing](#testing)
+
+## Program Features
+
+### cat
+
+- The `cat` utility has been developed with support for the following flags (including GNU versions):
+
+| № | Options | Description |
+|--------|--------|--------|
+| 1 | -b (GNU: --number-nonblank) | numbers only non-empty lines |
+| 2 | -e assumes and -v (GNU only: -E is the same, but without -v) | also displays end-of-line characters as $ |
+| 3 | -n (GNU: --number) | numbers all output lines |
+| 4 | -s (GNU: --squeeze-blank) | compresses multiple adjacent blank lines |
+| 5 | -t assumes and -v (GNU: -T is the same but without -v) | also displays tabs as ^I |
+- Combinations of flags for the `cat` utility are supported.
+- The source, header, and build files are located in src/cat/.
+- The final executable file is located in the src/cat/ directory and is called s21_cat
 
 
-1. [Chapter I](#chapter-i) \
-    1.1. [Introduction](#introduction)
-2. [Chapter II](#chapter-ii) \
-    2.1. [Information](#information)
-3. [Chapter III](#chapter-iii) \
+### grep
 
+- The `grep` utility has been developed with support for the following flags:
 
-
-#
-
-## Chapter I
-
-## Introduction
-
-В этом проекте я разработала базовые утилиты Bash по работе с текстами на языке программирования Си. В рамках этого проекта предполагается знакомство с организацией утилит Bash и закрепление структурного подхода.  
-
-
-## Chapter II
-
-## Information
-
-Cat - одна из наиболее часто используемых команд в Unix-подобных операционных системах. Команда имеет три взаимосвязанные функции в отношении текстовых файлов: отображение, объединение их копий и создание новых.
-
-`cat [OPTION] [FILE]...`
-
-### cat Опции
-
-| № | Опции | Описание |
+| № | Options | Description |
 | ------ | ------ | ------ |
-| 1 | -b (GNU: --number-nonblank) | нумерует только непустые строки |
-| 2 | -e предполагает и -v (GNU only: -E то же самое, но без применения -v) | также отображает символы конца строки как $  |
-| 3 | -n (GNU: --number) | нумерует все выходные строки |
-| 4 | -s (GNU: --squeeze-blank) | сжимает несколько смежных пустых строк |
-| 5 | -t предполагает и -v (GNU: -T то же самое, но без применения -v) | также отображает табы как ^I |
+| 1 | -e | Template |
+| 2 | -i | Ignores case differences. |
+| 3 | -v | Inverts the meaning of matching. |
+| 4 | -c | Outputs only the number of matching strings. |
+| 5 | -l | Only displays matching files. |
+| 6 | -n | Precedes each line of output with the line number from the input file. |
+| 7 | -h | Outputs matching lines without preceding them with file names. |
+| 8 | -s | Suppresses error messages about non-existent or unreadable files. |
+| 9 | -f file | Retrieves regular expressions from a file. |
+| 10 | -o | Prints only matching (non-empty) parts of a matching string. | |
+- Supported flag combinations for the `grep` utility
+- The regex library is used for regular expressions 
+- The source, header and assembly files are located in the src/grep/ directory.
+- The final executable is located in the src/grep/ directory and is called s21_grep.
 
-### grep Использование
+## Requirements
 
-`grep [options] template [file_name]`
+Program Requirements:
+- Language: C++17
+- Compiler: GCC (GNU Compiler Collection)
+- Build system: Makefile
+- Libraries: regex
 
-### grep Опции
+## Build
 
-| № | Опции | Описание |
-| ------ | ------ | ------ |
-| 1 | -e | Шаблон |
-| 2 | -i | Игнорирует различия регистра.  |
-| 3 | -v | Инвертирует смысл поиска соответствий. |
-| 4 | -c | Выводит только количество совпадающих строк. |
-| 5 | -l | Выводит только совпадающие файлы.  |
-| 6 | -n | Предваряет каждую строку вывода номером строки из файла ввода. |
-| 7 | -h | Выводит совпадающие строки, не предваряя их именами файлов. |
-| 8 | -s | Подавляет сообщения об ошибках о несуществующих или нечитаемых файлах. |
-| 9 | -f file | Получает регулярные выражения из файла. |
-| 10 | -o | Печатает только совпадающие (непустые) части совпавшей строки. |
+1. Cloning the repository:
+```
+git clone https://github.com/llllenivka/SimpleBashUtils
+cd SimpleBashUtils
+```
+2. Build with Makefile:
+- cat: Open a terminal in the project directory and run the command:
+```
+cd src/cat
+make
+```
+- grep: Open a terminal in the project directory and execute the command:
+```
+cd src/grep
+make
+```
+3. to clear all compiled files:
+```
+cd src/cat
+make clean
+cd ...
+cd grep
+make clean
+```
 
+## Use
 
-## Chapter III
+- cat:
+```
+./s21_cat [OPTION] [FILE]...
+```
+- grep:
+```
+./s21_grep [options] template [file_name]
+```
+## Testing
 
-Разработала утилиту cat:
-- Поддержка всех флагов (включая GNU версии), указанных [выше](#cat-опции)
-- Исходные, заголовочные и сборочный файлы должны располагаться в директории src/cat/
-- Итоговый исполняемый файл должен располагаться в директории src/cat/ и называться s21_cat
-
-Разработала утилиту grep:
-- Поддержка следующих флагов: `-e`, `-i`, `-v`, `-c`, `-l`, `-n`, `-h`, `-s`, `-f`, `-o`, включая их _парные_ комбинации (например, `-iv`, `-in`)
-- Для регулярных выражений можно использовать только библиотеки pcre или regex  
-- Исходные, заголовочные и make файлы должны располагаться в директории src/grep/
-- Итоговый исполняемый файл должен располагаться в директории src/grep/ и называться s21_grep
-
-
+- cat:
+```
+cd src/cat
+make test
+```
+- grep:
+```
+cd src/grep
+make test
+```
